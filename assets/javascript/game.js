@@ -1,46 +1,20 @@
+//  Globals
+//  ****************************************************
+let wordChoices = ['xbox', 'playstation', 'nintendo', 'computer',]
+let currentWord;
+let lettersInWord = [];
+let wrongGuess = [];
 
-// Globals
-var wins = 0;
+let winCount = 0;
+let lossCount = 0;
+let guessesRemaining = 5;
 
-var guessesLeft = [];
-
-var userGuess = [];
-
-// String of answers listed as underscore to answer
-var answerString;
-
-// Array of answers
-var words = [
-    'xbox',
-    'playstation',
-    'nintendo'
-]
-
-// Randomize chosen word in array
-var randomWord = words[Math.floor(Math.random () * words.length)];
-
-console.log(randomWord);
-
-
-// Calculate length of randomized word and convert it into a underscore
-function underScore () {
-    for (i = 0; i < randomWord.length; i++) {
-        userGuess[i] = '_';
-    }
-
-    // Adds a space in between underscores
-    answerString = userGuess.join(' ');
-    // Grab 'word'text' ID and change the HTML equal to word from underscore to word
-    document.getElementById('word-text').innerHTML = answerString;
+function start() {
+currentWord = wordChoices[Math.floor(Math.random () * wordChoices.length)];
+lettersInWord = currentWord.split('');
+console.log(lettersInWord);
+console.log(currentWord);
 }
+//  ****************************************************
 
-underScore();
-
-
-// Enable key up function to recognize keys pressed
-document.onkeyup = function(event) {
-
-// Convert letter pressed into lowercase
-var letter = event.key.toLowerCase();
-console.log(letter);
-}
+start();
